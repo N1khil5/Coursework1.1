@@ -16,6 +16,7 @@ public class Coursework11 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //new comment
         final Rectangle myRectangle = new Rectangle("Rectangle",10,20);
         myRectangle.displayDescription();
         System.out.println("Area     :" + myRectangle.getArea());
