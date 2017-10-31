@@ -22,6 +22,20 @@ public class Client {
 
     public void start() {
 
+        System.out.println("Welcome to the shapes application. Please look at the menu and select the option you would like.");
+        System.out.println("Please enter the number associated with the option you choose");
+        System.out.println("1. Create 2D Shapes");
+        System.out.println("2. Create 3D Shapes");
+        System.out.println("3. Receive Shapes");
+        System.out.println("4. Exit");
+        
+        Scanner s = new Scanner(System.in);
+        int option = s.nextInt();
+        
+        if (option == 1) {
+            System.out.println("You have selected 2D Shapes");
+            
+        }
         try {
             final Socket client = new Socket("127.0.0.1",5555);
             
