@@ -19,15 +19,16 @@ import java.util.Scanner;
  */
 public class Server {
 
-    Server(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private int _port;
+    Server(int port) {
+      _port = port;
     }
 
     public void start() {
 
         
         try {
-            final ServerSocket server = new ServerSocket(5555);
+            final ServerSocket server = new ServerSocket(_port);
 
             final Socket clientConnection = server.accept();
 
