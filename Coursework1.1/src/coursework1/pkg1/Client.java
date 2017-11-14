@@ -28,6 +28,8 @@ public class Client {
     }
     ObjectOutputStream outputToServer = null;
     ObjectInputStream fromServer = null;
+    
+    
 
     public void start() throws IOException {
         int option = 0;
