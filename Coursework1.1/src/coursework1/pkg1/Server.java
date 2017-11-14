@@ -8,6 +8,8 @@ package coursework1.pkg1;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,13 +22,13 @@ import java.util.Scanner;
 public class Server {
 
     private int _port;
+
     Server(int port) {
-      _port = port;
+        _port = port;
     }
 
     public void start() {
 
-        
         try {
             final ServerSocket server = new ServerSocket(_port);
 
@@ -36,6 +38,10 @@ public class Server {
 
             final Scanner in = new Scanner(clientConnection.getInputStream());
 
+            ObjectOutputStream outputToClient = new ObjectOutputStream(clientConnection.getOutputStream());
+            
+            ObjectInputStream fromClient = new ObjectInputStream(clientConnection.getInputStream());
+            
             while (in.hasNext()) {
 
                 final String clientRequest = in.nextLine();
