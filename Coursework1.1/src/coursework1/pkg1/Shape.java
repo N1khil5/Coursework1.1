@@ -5,11 +5,13 @@
  */
 package coursework1.pkg1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author M00607592
  */
-public abstract class Shape {
+public abstract class Shape implements Serializable {
 
     private int noOfSides;
     private String name;

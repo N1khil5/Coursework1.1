@@ -28,8 +28,6 @@ public class Client {
     }
     ObjectOutputStream outputToServer = null;
     ObjectInputStream fromServer = null;
-    
-    
 
     public void start() throws IOException {
         int option = 0;
@@ -85,7 +83,8 @@ public class Client {
                     System.out.println("Select y for yes and n for no");
                     String response = s.next();
                     //Based on user input, either send the triangle to the server or not.
-                    outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
 
                 } else if (twod.equals("c")) {
                     System.out.println("What are the dimensions for your circle named " + name + " ?");
@@ -106,7 +105,8 @@ public class Client {
                     System.out.println("Select y for yes and n for no");
                     String response = s.next();
                     //Based on user input, either send the circle to the server or not.
-                    outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
 
                 } else if (twod.equals("r")) {
                     System.out.println("What are the dimensions for your rectangle named " + name + " ?");
@@ -129,7 +129,8 @@ public class Client {
                     System.out.println("Select y for yes and n for no");
                     String response = s.next();
                     //Based on user input, either send the rectangle to the server or not.   
-                    outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
 
                 } else {
                     System.out.println("You have not entered a valid letter corresponding to the 2D shape you wish to create.");
@@ -169,7 +170,8 @@ public class Client {
                     System.out.println("Select y for yes and n for no");
                     String response = s.next();
                     //Based on user input, either send the cylinder to the server or not.
-                    outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
 
                 } else if (threed.equals("s")) {
                     System.out.println("Enter the dimensions for your sphere named " + name + " ?");
@@ -190,7 +192,8 @@ public class Client {
                     System.out.println("Select y for yes and n for no");
                     String response = s.next();
                     //Based on user input, either send the sphere to the server or not.
-                    outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                    new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
 
                 } else {
                     System.out.println("You have not entered a valid letter corresponding to the 3D shape you wish to create.");
@@ -201,6 +204,8 @@ public class Client {
                 //Create a line that will allow the client to send data to the files about shapes stored.
                 System.out.println("You have selected send shapes");
                 System.out.println("");
+                //outputToServer = new ObjectOutputStream(client.getOutputStream());
+                new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
                 //String send = s.next();
 
             } else if (option == 4) {
@@ -208,6 +213,23 @@ public class Client {
                 System.out.println("Which shapes would you like to receive?");
                 System.out.println("Enter a for All, r for Rectangle, t for Triangle, c for Circle, s for Sphere and cy for Cylinder");
                 String receive = s.next();
+                if (receive.equals("r")) {
+
+                } else if (receive.equalsIgnoreCase("t")) {
+
+                } else if (receive.equalsIgnoreCase("c")) {
+
+                } else if (receive.equalsIgnoreCase("s")) {
+
+                } else if (receive.equalsIgnoreCase("cy")) {
+
+                } else if (receive.equalsIgnoreCase("a")) {
+
+                } else {
+
+                    System.out.println("Please enter a valid input");
+                    System.out.println();
+                }
 
             } else if (option == 5) {
                 System.exit(0);
@@ -217,6 +239,7 @@ public class Client {
                 System.out.println();
             }
         }
+        /*
         try {
             //final Socket client = new Socket("127.0.0.1", 5555);
 
@@ -238,6 +261,7 @@ public class Client {
         } catch (IOException ex) {
             System.out.println("ERROR: " + ex.getMessage());
         }
+         */
     }
 
 }

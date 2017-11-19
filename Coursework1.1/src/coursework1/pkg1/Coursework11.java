@@ -5,6 +5,8 @@
  */
 package coursework1.pkg1;
 
+import java.io.IOException;
+
 /**
  *
  * @author M00607592
@@ -16,7 +18,7 @@ public class Coursework11 {
      */
     final static String FORMAT = "--server <port>\n--client <host><port>";
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
         if(args.length ==0) {
