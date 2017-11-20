@@ -33,7 +33,7 @@ public class Client {
         int option = 0;
         ArrayList<Shape> Shapes = new ArrayList<Shape>();
         System.out.println("Welcome to the shapes application. Please look at the menu and select the option you would like.");
-        Socket client = new Socket("127.0.0.1", 5555);
+        Socket client = new Socket("localhost", 8000);
         while (option != 5) {
 
             System.out.println("Please enter the number associated with the option you choose");
@@ -85,6 +85,7 @@ public class Client {
                     //Based on user input, either send the triangle to the server or not.
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
+                    client.close();
 
                 } else if (twod.equals("c")) {
                     System.out.println("What are the dimensions for your circle named " + name + " ?");
@@ -107,6 +108,7 @@ public class Client {
                     //Based on user input, either send the circle to the server or not.
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
+                    client.close();
 
                 } else if (twod.equals("r")) {
                     System.out.println("What are the dimensions for your rectangle named " + name + " ?");
@@ -131,6 +133,7 @@ public class Client {
                     //Based on user input, either send the rectangle to the server or not.   
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
+                    client.close();
 
                 } else {
                     System.out.println("You have not entered a valid letter corresponding to the 2D shape you wish to create.");
@@ -172,6 +175,7 @@ public class Client {
                     //Based on user input, either send the cylinder to the server or not.
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
+                    client.close();
 
                 } else if (threed.equals("s")) {
                     System.out.println("Enter the dimensions for your sphere named " + name + " ?");
@@ -194,6 +198,7 @@ public class Client {
                     //Based on user input, either send the sphere to the server or not.
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
+                    client.close();
 
                 } else {
                     System.out.println("You have not entered a valid letter corresponding to the 3D shape you wish to create.");
@@ -207,6 +212,7 @@ public class Client {
                 //outputToServer = new ObjectOutputStream(client.getOutputStream());
                 new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
                 //String send = s.next();
+                client.close();
 
             } else if (option == 4) {
                 //Create a line that will allow the client to receive data from the files about shapes stored.

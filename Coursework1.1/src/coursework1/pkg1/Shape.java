@@ -25,18 +25,16 @@ public abstract class Shape implements Serializable {
         this.noOfSides = noOfSides;
     }
 
-    //public abstract double getArea();
-
-    //public abstract double getPerimeter();
-
-    //public abstract double getVolume();
-
     public String getName() {
         return name;
     }
-    
+
     public void displayDescription() {
         System.out.println("I'm a shape named " + name);
     }
-    
+
+    public void printInfo() {
+        System.out.println("I'm a shape named " + name);
+    }
+
 }
