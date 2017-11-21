@@ -58,9 +58,10 @@ public class Server {
                 }
             }
                  */
+                //Casting done below
                 ArrayList<Shape> castedObject = (ArrayList<Shape>) object;
                 for (Shape s : castedObject) {
-                    s.printInfo();
+                    s.displayDescription();
                     System.out.println(s);
                 }
             }

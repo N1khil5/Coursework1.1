@@ -33,8 +33,4 @@ public abstract class Shape implements Serializable {
         System.out.println("I'm a shape named " + name);
     }
 
-    public void printInfo() {
-        System.out.println("I'm a shape named " + name);
-    }
-
 }
