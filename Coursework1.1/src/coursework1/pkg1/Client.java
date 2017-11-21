@@ -32,8 +32,9 @@ public class Client {
         int option = 0;
         ArrayList<Shape> Shapes = new ArrayList<Shape>();
         System.out.println("Welcome to the shapes application. Please look at the menu and select the option you would like.");
+        Socket client = new Socket("localhost", 8000);
         while (true) {
-            Socket client = new Socket("localhost", 8000);
+            
             while (option != 5) {
 
                 System.out.println("Please enter the number associated with the option you choose");
@@ -82,7 +83,7 @@ public class Client {
                             //Based on user input, either send the triangle to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            client.close();
+                            
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -108,7 +109,6 @@ public class Client {
                             //Based on user input, either send the circle to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            client.close();
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -137,7 +137,6 @@ public class Client {
                             //Based on user input, either send the rectangle to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            client.close();
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -184,7 +183,6 @@ public class Client {
                             //Based on user input, either send the cylinder to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            client.close();
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -210,7 +208,6 @@ public class Client {
                             //Based on user input, either send the sphere to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            client.close();
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -232,7 +229,6 @@ public class Client {
                     //outputToServer = new ObjectOutputStream(client.getOutputStream());
                     new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
                     //String send = s.next();
-                    client.close();
 
                 } else if (option == 4) {
                     //Create a line that will allow the client to receive data from the files about shapes stored.

@@ -5,17 +5,11 @@
  */
 package coursework1.pkg1;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,8 +32,9 @@ public class Server {
 
             //final Socket clientConnection = server.accept();
             //final PrintWriter out = new PrintWriter(clientConnection.getOutputStream(), true);
+            InputStream in = new ServerSocket(8000).accept().getInputStream();
             while (true) {
-                InputStream in = new ServerSocket(8000).accept().getInputStream();
+
 
                 //final Scanner in = new Scanner(clientConnection.getInputStream());
                 Object object = new ObjectInputStream(in).readObject();
