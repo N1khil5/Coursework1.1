@@ -62,7 +62,7 @@ public class Client {
                     String twod = s.next();
 
                     switch (twod) {
-                        case "t": {
+                        case "t": { //Case for Triangle in Two D Shapes
                             System.out.println("What are the dimensions for your triangle named " + name + " ?");
                             System.out.println("Enter the length for side 1");
                             double side1 = s.nextDouble();
@@ -83,7 +83,8 @@ public class Client {
                             //Based on user input, either send the triangle to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            //Writing in to the object output stream above. Below is when we ask the user if he wants to continue using the program
+                            //Writing in to the object output stream above. 
+                            //Below is when we ask the user if he wants to continue using the program
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -93,7 +94,7 @@ public class Client {
                                 break;
                             }
                         }
-                        case "c": {
+                        case "c": { //Case for Circle
                             System.out.println("What are the dimensions for your circle named " + name + " ?");
                             System.out.println("Enter the length of the radius");
                             double radius = s.nextDouble();
@@ -119,7 +120,7 @@ public class Client {
                             }
 
                         }
-                        case "r": {
+                        case "r": { //Case for Rectangle
                             System.out.println("What are the dimensions for your rectangle named " + name + " ?");
                             System.out.println("Enter the height of the rectangle");
                             int height = s.nextInt();
@@ -146,7 +147,7 @@ public class Client {
                                 break;
                             }
                         }
-                        default:
+                        default: //If anything else has been entered, should go back to original menu
                             System.out.println("You have not entered a valid letter corresponding to the 2D shape you wish to create.");
                             continue;
                     }
@@ -165,7 +166,7 @@ public class Client {
                     String threed = s.next();
 
                     switch (threed) {
-                        case "c": {
+                        case "c": { //Cylinder on Three D Shapes
                             System.out.println("What are the dimensions for your cylinder named " + name + " ?");
                             System.out.println("Enter the radius for your cylinder");
                             int radius = s.nextInt();
@@ -192,7 +193,7 @@ public class Client {
                                 break;
                             }
                         }
-                        case "s": {
+                        case "s": { //Sphere on Three D Shapes
                             System.out.println("Enter the dimensions for your sphere named " + name + " ?");
                             System.out.println("Enter the radius for your sphere");
                             int radius = s.nextInt();
@@ -247,18 +248,22 @@ public class Client {
                             continue;
                         }
                         case "c": {
+                            //Use instance of Circle in here
                             System.out.println(Shapes.get(0));
                             continue;
                         }
                         case "s": {
+                            //Use instance of Sphere in here
                             System.out.println(Shapes.get(0));
                             continue;
                         }
                         case "cy": {
+                            //Use instance of Cylinder in here
                             System.out.println(Shapes.get(0));
                             continue;
                         }
                         case "a": {
+                            //Should print out everything in the arraylist
                             System.out.println(Shapes.get(0));
                             System.out.println();
                             System.out.println(Shapes.get(1));
@@ -293,7 +298,7 @@ public class Client {
                 }
 
                      */
-                } else if (option == 5) {
+                } else if (option == 5) { //Exits program
                     System.exit(0);
 
                 } else {

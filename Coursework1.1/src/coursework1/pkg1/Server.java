@@ -5,6 +5,8 @@
  */
 package coursework1.pkg1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -35,7 +37,6 @@ public class Server {
             InputStream in = new ServerSocket(8000).accept().getInputStream();
             while (true) {
 
-
                 //final Scanner in = new Scanner(clientConnection.getInputStream());
                 Object object = new ObjectInputStream(in).readObject();
                 System.out.println(object.getClass() + ": " + object);
@@ -53,6 +54,23 @@ public class Server {
                 }
             }
                  */
+                //Using file writer from previous years mini project
+                FileWriter fw;
+                //line below checks if the server file has been made, if it has, it will write to the file.
+                fw = new FileWriter("Server.txt", true);
+                //Buffered writing for the file
+                try (BufferedWriter bw = new BufferedWriter(fw)) {
+
+                    bw.write("Shape: " + object);
+                    bw.newLine();
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException ex) {
+                    System.out.println(ex.toString());
+                }
+                fw.close();
+                //Closing the file writer. Will be open again during the next iteration of the program.
+                
                 //Casting done below
                 ArrayList<Shape> castedObject = (ArrayList<Shape>) object;
                 for (Shape s : castedObject) {
