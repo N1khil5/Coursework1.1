@@ -37,17 +37,14 @@ public class Server {
             //final ServerSocket server = new ServerSocket(_port);
 
             //final Socket clientConnection = server.accept();
-
             //final PrintWriter out = new PrintWriter(clientConnection.getOutputStream(), true);
-
             InputStream in = new ServerSocket(8000).accept().getInputStream();
             //final Scanner in = new Scanner(clientConnection.getInputStream());
 
             Object object = new ObjectInputStream(in).readObject();
             System.out.println(object.getClass() + ": " + object);
-
+            
             //ObjectOutputStream outputToClient = new ObjectOutputStream(clientConnection.getOutputStream());
-
             //ObjectInputStream fromClient = new ObjectInputStream(clientConnection.getInputStream());
 
             /*
