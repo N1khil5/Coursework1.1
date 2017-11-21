@@ -34,7 +34,7 @@ public class Client {
         System.out.println("Welcome to the shapes application. Please look at the menu and select the option you would like.");
         Socket client = new Socket("localhost", 8000);
         while (true) {
-            
+            //While loop above and below are to reset the menu when the program runs more than once. 
             while (option != 5) {
 
                 System.out.println("Please enter the number associated with the option you choose");
@@ -83,7 +83,7 @@ public class Client {
                             //Based on user input, either send the triangle to the server or not.
                             //outputToServer = new ObjectOutputStream(client.getOutputStream());
                             new ObjectOutputStream(client.getOutputStream()).writeObject(Shapes);
-                            
+                            //Writing in to the object output stream above. Below is when we ask the user if he wants to continue using the program
                             System.out.println("Do you want to continue?");
                             System.out.println("Select y for yes and n for no");
                             String answer = s.next();
@@ -237,7 +237,7 @@ public class Client {
                     String receive = s.next();
                     switch (receive) {
                         case "r": {
-                            //Use instance of here
+                            //Use instance of rectangle here
                             System.out.println(Shapes.get(0));
                             continue;
                         }
@@ -259,7 +259,12 @@ public class Client {
                             continue;
                         }
                         case "a": {
-                            System.out.println(Shapes.get(port));
+                            System.out.println(Shapes.get(0));
+                            System.out.println();
+                            System.out.println(Shapes.get(1));
+                            System.out.println();
+                            System.out.println(Shapes.get(2));
+                            System.out.println();
                             continue;
                         }
                         default: {
