@@ -38,16 +38,16 @@ public class Server {
 
             //final Socket clientConnection = server.accept();
             //final PrintWriter out = new PrintWriter(clientConnection.getOutputStream(), true);
-            InputStream in = new ServerSocket(8000).accept().getInputStream();
-            //final Scanner in = new Scanner(clientConnection.getInputStream());
+            while (true) {
+                InputStream in = new ServerSocket(8000).accept().getInputStream();
 
-            Object object = new ObjectInputStream(in).readObject();
-            System.out.println(object.getClass() + ": " + object);
-            
-            //ObjectOutputStream outputToClient = new ObjectOutputStream(clientConnection.getOutputStream());
-            //ObjectInputStream fromClient = new ObjectInputStream(clientConnection.getInputStream());
+                //final Scanner in = new Scanner(clientConnection.getInputStream());
+                Object object = new ObjectInputStream(in).readObject();
+                System.out.println(object.getClass() + ": " + object);
+                //ObjectOutputStream outputToClient = new ObjectOutputStream(clientConnection.getOutputStream());
+                //ObjectInputStream fromClient = new ObjectInputStream(clientConnection.getInputStream());
 
-            /*
+                /*
             while (in.hasNext()) {
 
                 final String clientRequest = in.nextLine();
@@ -57,11 +57,12 @@ public class Server {
                     out.println("Request received '" + clientRequest.toUpperCase() + "'");
                 }
             }
-             */
-            ArrayList<Shape> castedObject = (ArrayList<Shape>) object;
-            for (Shape s : castedObject) {
-                s.printInfo();
-                System.out.println(s);
+                 */
+                ArrayList<Shape> castedObject = (ArrayList<Shape>) object;
+                for (Shape s : castedObject) {
+                    s.printInfo();
+                    System.out.println(s);
+                }
             }
         } catch (IOException ex) {
             System.out.println("ERROR: " + ex.getMessage());

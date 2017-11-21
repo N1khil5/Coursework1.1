@@ -32,6 +32,7 @@ public class Client {
         int option = 0;
         ArrayList<Shape> Shapes = new ArrayList<Shape>();
         System.out.println("Welcome to the shapes application. Please look at the menu and select the option you would like.");
+        while(true) {
         Socket client = new Socket("localhost", 8000);
         while (option != 5) {
 
@@ -241,34 +242,38 @@ public class Client {
                 String receive = s.next();
                 switch (receive) {
                     case "r": {
-                        Shapes.get(0);
+                        //Use instance of here
+                        System.out.println(Shapes.get(0));
                         continue;
                     }
                     case "t": {
-                        Shapes.get(port);
+                        //Use instance of triangle here
+                        System.out.println(Shapes.get(0));
                         continue;
                     }
                     case "c": {
-                        Shapes.get(port);
+                        System.out.println(Shapes.get(0));
                         continue;
                     }
                     case "s": {
-
+                        System.out.println(Shapes.get(0));
                         continue;
                     }
                     case "cy": {
-
+                        System.out.println(Shapes.get(0));
                         continue;
                     }
                     case "a": {
-
+                        System.out.println(Shapes.get(port));
                         continue;
                     }
                     default: {
-
+                        System.out.println("Enter a letter than can output the shapes.");
                         break;
                     }
                 }
+
+                /*
                 if (receive.equalsIgnoreCase("r")) {
 
                 } else if (receive.equalsIgnoreCase("t")) {
@@ -287,6 +292,7 @@ public class Client {
                     System.out.println();
                 }
 
+                 */
             } else if (option == 5) {
                 System.exit(0);
 
@@ -294,6 +300,7 @@ public class Client {
                 System.out.println("Please enter a valid input");
                 System.out.println();
             }
+        }
         }
     }
 
